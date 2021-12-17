@@ -1,5 +1,5 @@
 import funcs_for_tests
-from inputs.datasets import *
+from tests.datasets import *
 
 def test_on_first_input():
     assert funcs_for_tests.n.maxOfList(list_1) == 33
