@@ -5,13 +5,14 @@ on:
     branches: [master]
 
 jobs:
-  
   build:
-    runs-on: windows-latest
+
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         python-version: ["3.8", "3.9", "3.10"]
+
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
@@ -23,18 +24,27 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Lint with flake8
+      run: |
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - name: Test with pytest
+      run: |
+        pytest
 
-  settingup:
-    runs-on: windows-latest
+  # settingup:
+  #   runs-on: windows-latest
     
-    steps:
-    - name: Installing pytest
-      run: pip install pytest
+  #   steps:
+  #   - name: Installing pytest
+  #     run: pip install pytest
       
-  testing:
-    runs-on: windows-latest
+  # testing:
+  #   runs-on: windows-latest
 
-    steps: 
-    - name: Test with pytest 
-      run: python -m pytest
+  #   steps: 
+  #   - name: Test with pytest 
+  #     run: python -m pytest
         
