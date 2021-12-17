@@ -30,5 +30,17 @@ jobs:
         pytest
     - name: Stress Test with time_calc.py
       run: python time_calc.py
+    - name: send telegram message on push
+        uses: appleboy/telegram-action@master
+        with:
+          to: "-1001509588088"
+          token: "5088942515:AAGCpNSHihIuE-VbOL3b-p4-vrpWWIlsEdo"
+          message: |
+            ${{ github.actor }} created commit:
+            Commit message: ${{ github.event.commits[0].message }}
+            
+            Repository: ${{ github.repository }}
+            
+            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}} 
 
         
