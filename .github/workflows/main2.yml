@@ -28,17 +28,4 @@ jobs:
       run: |
         pytest
 
-  # settingup:
-  #   runs-on: windows-latest
-    
-  #   steps:
-  #   - name: Installing pytest
-  #     run: pip install pytest
-      
-  # testing:
-  #   runs-on: windows-latest
-
-  #   steps: 
-  #   - name: Test with pytest 
-  #     run: python -m pytest
         
