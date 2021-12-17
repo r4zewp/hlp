@@ -28,5 +28,7 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+    - name: Stress Test with time_calc.py
+      run: python time_calc.py
 
         
