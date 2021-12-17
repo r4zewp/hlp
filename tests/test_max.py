@@ -1,4 +1,4 @@
-import funcs_for_tests
+import funcs_for_test
 from datasets import *
 
 def test_on_first_input():
