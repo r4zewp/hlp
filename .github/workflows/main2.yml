@@ -3,8 +3,6 @@ name: TZ3
 on: 
   push:
     branches: [master]
-  commit_comment:
-    branches: [master]
 
 jobs:
   testing:
