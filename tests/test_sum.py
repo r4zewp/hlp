@@ -1,5 +1,5 @@
-from function import *
-from tests.datasets import *
+from funcs_for_tests import *
+from datasets import *
 
 def test_on_first_input():
     assert sumOfList(list_1) == 66
