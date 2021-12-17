@@ -25,10 +25,12 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install flake8 pytest
         pip install -r requirements.txt
-    - name: pytest
+    - name: Functions Test
+      id: pytest
       run: |
         pytest
-    - name: stresstest
+    - name: Stress Test
+      id: stress
       run: python time_calc.py
     - name: send telegram message on push
       uses: appleboy/telegram-action@master
@@ -36,6 +38,7 @@ jobs:
         to: "-1001509588088"
         token: "5088942515:AAGCpNSHihIuE-VbOL3b-p4-vrpWWIlsEdo"
         message: |
-          ${{ steps.pytest.outcome }} 
+          Functions test outcome: ${{ steps.pytest.outcome }}
+          Stress test outcome: ${{ steps.stress.outcome}}
 
         
