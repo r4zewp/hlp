@@ -10,6 +10,6 @@ jobs:
     
     steps:
     - name: Test with pytest
-      run: 
-        pip install pytest
-        python -m pytest
+      run: pip install pytest
+      run: python -m pytest
+        
