@@ -41,6 +41,6 @@ jobs:
         message: |
           Functions test outcome: ${{ steps.pytest.outcome }}
           Stress test outcome: ${{ steps.stress.outcome}}
-          ${{ STEPS_CONTEXT }}
+         
 
         
