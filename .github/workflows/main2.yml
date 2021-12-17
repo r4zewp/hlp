@@ -32,7 +32,7 @@ jobs:
     - name: Stress Test
       id: stress
       run: python time_calc.py
-    - name: send telegram message on push
+    - name: Send outcomes of test to Telegram channel
       uses: appleboy/telegram-action@master
       with:
         to: "-1001509588088"
