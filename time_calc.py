@@ -47,5 +47,5 @@ names = list(data.keys())
 values = list(data.values())
 fig, axs = plt.subplots()
 axs.plot(names, values)
-#plt.savefig(f'outputs/graphic_{datetime.now():%Y-%m-%d-%H-%M-%S}.png')
-plt.show()
+plt.savefig(f'outputs/graphic_{datetime.now():%Y-%m-%d-%H-%M-%S}.png')
+
