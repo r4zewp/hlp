@@ -24,27 +24,22 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install flake8 pytest
         pip install -r requirements.txt
-
     - name: Minimal Number Test
       continue-on-error: true
       id: pytest_min
       run: python -m pytest tests/test_min.py
-
      - name: Maximal Number Test
       continue-on-error: true
       id: pytest_max
       run: python -m pytest tests/test_max.py
-
      - name: Sum Of Number Test
       continue-on-error: true
       id: pytest_sum
       run: python -m pytest tests/test_sum.py
-
      - name: Prod of Numbers Test
       continue-on-error: true
       id: pytest_min
       run: python -m pytest tests/test_prod.py
-
     - name: Stress Test
       continue-on-error: true
       id: stress
@@ -65,7 +60,7 @@ jobs:
           **Prod of number** test outcome: ${{ steps.pytest_min.outcome }}
           Stress test outcome: ${{ steps.stress.outcome}}
 
-            you can download graph by pressing the link ${{ github.workflow }}}
+          you can download graph by pressing the link ${{ github.workflow }}}
 
       
 
