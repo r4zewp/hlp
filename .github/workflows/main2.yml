@@ -38,7 +38,7 @@ jobs:
       run: python -m pytest tests/test_sum.py
     - name: Prod of Numbers Test
       continue-on-error: true
-      id: pytest_min
+      id: pytest_prod
       run: python -m pytest tests/test_prod.py
     - name: Stress Test
       continue-on-error: true
@@ -55,9 +55,9 @@ jobs:
         token: "5088942515:AAGCpNSHihIuE-VbOL3b-p4-vrpWWIlsEdo"
         message: |
           **Minimal number** test outcome: ${{ steps.pytest_min.outcome }}
-          **Maximal number** test outcome: ${{ steps.pytest_min.outcome }}
-          **Sum of number** test outcome: ${{ steps.pytest_min.outcome }}
-          **Prod of number** test outcome: ${{ steps.pytest_min.outcome }}
+          **Maximal number** test outcome: ${{ steps.pytest_max.outcome }}
+          **Sum of number** test outcome: ${{ steps.pytest_sum.outcome }}
+          **Prod of number** test outcome: ${{ steps.pytest_prod.outcome }}
           Stress test outcome: ${{ steps.stress.outcome}}
 
           you can download graph by pressing the link ${{ github.workflow }}}
