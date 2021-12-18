@@ -24,23 +24,26 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install flake8 pytest
         pip install -r requirements.txt
-    - name: Functions Test
+    - name: Minimal Number Test
       continue-on-error: true
-      id: pytest
-      run: |
-        pytest
+      id: pytest_min
+      run: python -m pytest tests/test_min.py
     - name: Stress Test
       continue-on-error: true
       id: stress
       run: python time_calc.py
+    - uses: actions/upload-artifacts@v2
+      with:
+        name: stress_test_graph.png
+        path: outputs/graphic.png
     - name: Send outcomes of test to Telegram channel
       uses: appleboy/telegram-action@master
       with:
         to: "-1001509588088"
         token: "5088942515:AAGCpNSHihIuE-VbOL3b-p4-vrpWWIlsEdo"
         message: |
-          Functions test outcome: ${{ steps.pytest.outcome }}
+          Minimal number test outcome: ${{ steps.pytest_min.outcome }}
           Stress test outcome: ${{ steps.stress.outcome}}
-         
+      
 
         
