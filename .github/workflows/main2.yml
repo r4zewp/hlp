@@ -40,6 +40,10 @@ jobs:
       continue-on-error: true
       id: pytest_prod
       run: python -m pytest tests/test_prod.py
+    - name: Test for valid file reading
+      continue-on-error: true
+      id: pytest_validfile
+      run: python -m pytest tests/test_file_valid.py
     - name: Stress Test
       continue-on-error: true
       id: stress
@@ -61,6 +65,8 @@ jobs:
           Sum of number test outcome: ${{ steps.pytest_sum.outcome }}
           
           Prod of number test outcome: ${{ steps.pytest_prod.outcome }}
+
+          Custom test - valid file reading outcome: ${{ steps.pytest_validfile.outcome }}
 
           Stress test outcome: ${{ steps.stress.outcome }}
 

@@ -26,6 +26,11 @@ def prodOfList(list):
         prod *= item
     return prod
 
+# def fileOpening(file):
+#     with open(file, "r") as numbers:
+#         numbersList = numbers.read()
+#     return numbersList
+
 def fileReading(file):
     try:
         with open(file, "r") as numbers:
