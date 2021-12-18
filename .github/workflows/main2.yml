@@ -54,13 +54,18 @@ jobs:
         to: "-1001509588088"
         token: "5088942515:AAGCpNSHihIuE-VbOL3b-p4-vrpWWIlsEdo"
         message: |
-          *Minimal number* test outcome: ${{ steps.pytest_min.outcome }}
-          *Maximal number* test outcome: ${{ steps.pytest_max.outcome }}
-          *Sum of number* test outcome: ${{ steps.pytest_sum.outcome }}
-          *Prod of number* test outcome: ${{ steps.pytest_prod.outcome }}
+          Minimal number test outcome: ${{ steps.pytest_min.outcome }}
+
+          Maximal number test outcome: ${{ steps.pytest_max.outcome }}
+
+          Sum of number test outcome: ${{ steps.pytest_sum.outcome }}
+          
+          Prod of number test outcome: ${{ steps.pytest_prod.outcome }}
+
           Stress test outcome: ${{ steps.stress.outcome }}
 
-          you can download graph by pressing the link ${{ github.workflow }}
+          you can download graph by pressing the link 
+          https://github.com/${{ github.actor }}/${{ github.repository }}/${{ github.workflow }}
 
       
 
