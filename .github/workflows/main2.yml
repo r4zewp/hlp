@@ -65,7 +65,7 @@ jobs:
           Stress test outcome: ${{ steps.stress.outcome }}
 
           you can download graph by pressing the link 
-          https://github.com/${{ github.repository }}/actions/runs/${{ github.run.id }}
+          https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
       
 
