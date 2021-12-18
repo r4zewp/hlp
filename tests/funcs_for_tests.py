@@ -26,19 +26,23 @@ def prodOfList(list):
         prod *= item
     return prod
 
-# def fileOpening(file):
-#     with open(file, "r") as numbers:
-#         numbersList = numbers.read()
-#     return numbersList
+def fileOpening(file_name):
+    with open(file_name, "r") as numbers:
+        numbersList = numbers.read()
+        numbersListConverted = numbersList.split(',')
+        for item in range(len(numbersListConverted)):
+            numbersListConverted[item] = int(numbersListConverted[item])
+    return numbersListConverted
 
+    
 def fileReading(file):
     try:
-        with open(file, "r") as numbers:
-            numbersList = numbers.read()
+        fileOpening(file)
     except FileNotFoundError:
         print("Файл с таким названием не найден")
         sys.exit(1)
     else:
+        numbersList = fileOpening(file)
         numbersListConverted = numbersList.split(',')
         for item in range(len(numbersListConverted)):
             numbersListConverted[item] = int(numbersListConverted[item])

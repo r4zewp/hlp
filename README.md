@@ -3,6 +3,7 @@
 
 **ББИ2005**
 
+[![TZ3](https://github.com/r4zewp/hlp/actions/workflows/main2.yml/badge.svg)](https://github.com/r4zewp/hlp/actions/workflows/main2.yml)
 ----------------------------
 
 **main.py** - в коде файла содержится исключительно запуск функции, отвечающей за считывание чисел из файла и проведение всех нужных вычислений.

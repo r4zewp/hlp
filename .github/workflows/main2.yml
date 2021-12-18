@@ -1,0 +1,78 @@
+name: TZ3
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      continue-on-error: true
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.10"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install flake8 pytest
+        pip install -r requirements.txt
+    - name: Minimal Number Test
+      continue-on-error: true
+      id: pytest_min
+      run: python -m pytest tests/test_min.py
+    - name: Maximal Number Test
+      continue-on-error: true
+      id: pytest_max
+      run: python -m pytest tests/test_max.py
+    - name: Sum Of Number Test
+      continue-on-error: true
+      id: pytest_sum
+      run: python -m pytest tests/test_sum.py
+    - name: Prod of Numbers Test
+      continue-on-error: true
+      id: pytest_prod
+      run: python -m pytest tests/test_prod.py
+    - name: Test for valid file reading
+      continue-on-error: true
+      id: pytest_validfile
+      run: python -m pytest tests/test_file_valid.py
+    - name: Stress Test
+      continue-on-error: true
+      id: stress
+      run: python time_calc.py
+    - uses: actions/upload-artifact@v2
+      with:
+        name: stress_test_graph.png
+        path: outputs/graphic.png
+    - name: Send outcomes of test to Telegram channel
+      uses: appleboy/telegram-action@master
+      with:
+        to: "-1001509588088"
+        token: "5088942515:AAGCpNSHihIuE-VbOL3b-p4-vrpWWIlsEdo"
+        message: |
+          Minimal number test outcome: ${{ steps.pytest_min.outcome }}
+
+          Maximal number test outcome: ${{ steps.pytest_max.outcome }}
+
+          Sum of number test outcome: ${{ steps.pytest_sum.outcome }}
+          
+          Prod of number test outcome: ${{ steps.pytest_prod.outcome }}
+
+          Custom test - valid file reading outcome: ${{ steps.pytest_validfile.outcome }}
+
+          Stress test outcome: ${{ steps.stress.outcome }}
+
+          you can download graph by pressing the link 
+          https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+      
+
+        
