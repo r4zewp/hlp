@@ -28,15 +28,15 @@ jobs:
       continue-on-error: true
       id: pytest_min
       run: python -m pytest tests/test_min.py
-     - name: Maximal Number Test
+    - name: Maximal Number Test
       continue-on-error: true
       id: pytest_max
       run: python -m pytest tests/test_max.py
-     - name: Sum Of Number Test
+    - name: Sum Of Number Test
       continue-on-error: true
       id: pytest_sum
       run: python -m pytest tests/test_sum.py
-     - name: Prod of Numbers Test
+    - name: Prod of Numbers Test
       continue-on-error: true
       id: pytest_min
       run: python -m pytest tests/test_prod.py
